@@ -1,0 +1,21 @@
+# Lazarus / Free Pascal build output (regenerated on every build)
+*.exe
+*.dll
+*.o
+*.ppu
+*.obj
+*.or
+*.a
+*.compiled
+*.dbg
+*.rst
+*.rsj
+lib/
+backup/
+
+# Lazarus per-user session file (window positions, open tabs)
+*.lps
+
+# OS / editors
+Thumbs.db
+.DS_Store

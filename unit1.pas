@@ -45,7 +45,7 @@ var
 begin
    low:='azertyuiopqsdfghjklmwxcvbn';
    number:='1234567890';
-   symbol:='&"(-_=+-*/.!:;,?#';
+   symbol:='&"(-_=+*/.!:;,?#';
    all:='';
    i:=1;
    while i<=length(x) do
@@ -59,11 +59,19 @@ begin
    i:=i+1;
    end;
 
+   // no character type selected: nothing to pick from
+   if all = '' then
+   begin
+     rand:='';
+     exit;
+   end;
+
    //gen
    ch:='';
    for i:=1 to n do
    begin
-     ch:=ch+all[randomrange(1,length(all))];
+     // strings are 1-based: Random(len) gives 0..len-1, so +1 covers 1..len
+     ch:=ch+all[Random(Length(all)) + 1];
      end;
    rand:=ch;
 end;
@@ -88,8 +96,11 @@ var
     x:string;
 begin
      x:=inttostr(booltostr(checkbox1.Checked)*1)+inttostr(booltostr(checkbox2.Checked)*2)+inttostr(booltostr(checkbox3.Checked)*3)+inttostr(booltostr(checkbox4.Checked)*4);
-   edit1.text:=rand(trackbar1.Position,x);
    label1.Caption:=inttostr(trackbar1.Position);
+   if x = '0000' then
+     edit1.text:=''
+   else
+     edit1.text:=rand(trackbar1.Position,x);
    end;
 
 procedure TForm1.Button1Click(Sender: TObject);
@@ -103,13 +114,20 @@ var
     x:string;
 begin
     x:=inttostr(booltostr(checkbox1.Checked)*1)+inttostr(booltostr(checkbox2.Checked)*2)+inttostr(booltostr(checkbox3.Checked)*3)+inttostr(booltostr(checkbox4.Checked)*4);
-edit1.text:=rand(trackbar1.Position,x);
+if x = '0000' then
+  ShowMessage('Please tick at least one character type (Lower, Upper, Number or Symbol).')
+else
+  edit1.text:=rand(trackbar1.Position,x);
 end;
 
 procedure TForm1.CheckBox1Change(Sender: TObject);
 begin
 
 end;
+
+initialization
+  // seed the random generator once, otherwise every launch gives the same passwords
+  Randomize;
 
 end.
 

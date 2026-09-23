@@ -3,7 +3,7 @@ object Form1: TForm1
   Height = 227
   Top = 205
   Width = 314
-  Caption = 'Form1'
+  Caption = 'Password Generator'
   ClientHeight = 227
   ClientWidth = 314
   DesignTimePPI = 120
@@ -194,7 +194,7 @@ object Form1: TForm1
     Top = 152
     Width = 20
     Alignment = taCenter
-    Caption = '0'
+    Caption = '1'
     Font.CharSet = ANSI_CHARSET
     Font.Height = -33
     Font.Name = 'Segoe UI Black'
