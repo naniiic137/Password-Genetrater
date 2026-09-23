@@ -17,7 +17,7 @@ A small Windows desktop app that generates random passwords, written in **Free P
 2. Clone the repository:
 
    ```bash
-   git clone https://github.com/naniiic137/Password-Genetrater.git
+   git clone https://github.com/naniiic137/Password-Generator.git
    ```
 
 3. Open `project1.lpi` in Lazarus.
