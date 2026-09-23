@@ -63,4 +63,4 @@ Refresh icon by [Icons8](https://icons8.com).
 
 ## License
 
-License: not chosen yet.
+© 2026 Hamza Ben Ismail. All rights reserved.
